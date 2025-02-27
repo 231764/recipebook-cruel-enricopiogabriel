@@ -26,7 +26,7 @@ def recipes_list(request):
     return render(request, 'recipes_list.html', ctx)
 
 def recipe(request):
-    recipe = RecipeIngredient.objects.all()
+    recipe = Recipe.objects.all()
     ctx = {
         "recipe": recipe
     }
