@@ -6,6 +6,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) #one to one is a foreign key with the restriction that there is one profile instance that can point to a user instance
     short_bio = models.TextField(max_length=255)
 
+    def __str__(self): 
+        return self.user.username
+
 class Ingredient(models.Model):
     name = models.CharField(max_length=255)
 
