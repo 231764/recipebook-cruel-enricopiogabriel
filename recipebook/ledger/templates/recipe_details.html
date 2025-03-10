@@ -3,13 +3,16 @@
 {% block title %}{{ object.name }}{% endblock %}
 
 {% block content %} 
-    <h2>{{ object.name }}</h2>
+    {% if request.user.is_authenticated %}
+        <h2>{{ object.name }}</h2>
+        <p>Author: {{ request.user.username }}</p> 
 
-    <ul>
-        {% for ingredient in object.ingredients.all %}
-        <li>{{ ingredient.quantity }} of {{ ingredient.ingredient.name }} </li>
-     {% endfor %}
-    
-        
-    </ul>
+        <ul>
+            {% for ingredient in object.ingredients.all %}
+                <li>{{ ingredient.quantity }} of {{ ingredient.ingredient.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You must be logged in to view this page.</p>
+    {% endif %}
 {% endblock %}
