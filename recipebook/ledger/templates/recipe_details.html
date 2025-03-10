@@ -7,7 +7,7 @@
     {% if request.user.is_authenticated %}
 
         <h2>{{ object.name }}</h2>
-        <p><strong>Author:</strong> {{ recipe.author.user }}</p> 
+        <p><strong>Author:</strong> {{ recipe.author }}</p> 
         <p><strong>Created:</strong> {{ recipe.created_on }}</p>
         <p><strong>Updated:</strong> {{ recipe.updated_on }}</p>
 
