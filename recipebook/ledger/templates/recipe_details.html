@@ -4,6 +4,7 @@
 
 {% block content %} 
     {% if request.user.is_authenticated %}
+
         <h2>{{ object.name }}</h2>
         <p>Author: {{ request.user.username }}</p> 
 

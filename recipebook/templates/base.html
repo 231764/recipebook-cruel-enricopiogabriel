@@ -8,6 +8,14 @@
     </head>
     <body>
         <strong style="font-size:20px">Recipe Book</strong>
+        {% if request.user.is_authenticated %}
+                <form method="POST" action="{% url 'logout' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
         {% block content %}
         {% endblock %}
     </body>
