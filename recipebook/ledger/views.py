@@ -66,7 +66,7 @@ def add_image(request, pk):
         'object': recipe
            }
 
-    return render(request, 'add_forms.html', ctx)
+    return render(request, 'add_image.html', ctx)
 
 
 # Create your views here.
