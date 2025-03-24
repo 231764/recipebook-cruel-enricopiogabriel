@@ -11,6 +11,18 @@
         <p><strong>Created:</strong> {{ recipe.created_on }}</p>
         <p><strong>Updated:</strong> {{ recipe.updated_on }}</p>
 
+        
+        {% for img in object.images.all %}
+            {% if img.image %}
+                <img src="{{ img.image.url }}" alt="{{image.description}}" style="max-height:300px;">
+            {% endif %}
+        
+            {% empty %}
+            <a href="/recipe/{{ object.pk }}/add_image">
+                <strong>Upload a new image for this recipe</strong>
+            </a>
+        {% endfor %}
+
         <ul>
             {% for ingredient in object.ingredients.all %}
                 <li>{{ ingredient.quantity }} of {{ ingredient.ingredient.name }}</li>

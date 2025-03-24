@@ -6,9 +6,11 @@
 
     {% if request.user.is_authenticated %}
     <h1>Welcome {{request.user.username}} </h1>
+    <a href="/recipe/add"><strong>Create Recipe Here!</strong></a>
+    <ul>
     {% endif %}
     <h2>Recipe List</h2>
-    <ul>
+    
         {% for recipe in object_list %}
             <li>
                 <a href="{{ recipe.get_absolute_url }}"><strong>{{ recipe.name }}</strong></a>
