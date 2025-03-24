@@ -12,12 +12,8 @@
             <button type="submit">Submit!</button>
         </form>
         
-        <a href="/recipe/{{ object.pk }}">
-            <strong>Go Back</strong>
-        </a>
-        
     {% else %}
-        <p>You must be logged in to upload images.</p>
+        <p>You must be logged in to upload recipes.</p>
     {% endif %}
 
 {% endblock %}

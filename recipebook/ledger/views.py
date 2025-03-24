@@ -47,10 +47,11 @@ def add_recipe(request):
             
     ctx = {'form': form}
 
-    return render(request, 'add_forms.html', ctx)
+    return render(request, 'add_recipe.html', ctx)
 
 def add_image(request, pk):
     form = RecipeImageForm()
+    recipe = Recipe.objects.get(pk=pk)
 
     if request.method == "POST":
         form = RecipeImageForm(request.POST, request.FILES)
@@ -60,7 +61,10 @@ def add_image(request, pk):
         else:
             form = RecipeImageForm()
             
-    ctx = {'form': form}
+    ctx = {
+        'form': form,
+        'object': recipe
+           }
 
     return render(request, 'add_forms.html', ctx)
 

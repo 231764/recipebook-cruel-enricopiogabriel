@@ -10,7 +10,6 @@
         <p><strong>Author:</strong> {{ recipe.author }}</p> 
         <p><strong>Created:</strong> {{ recipe.created_on }}</p>
         <p><strong>Updated:</strong> {{ recipe.updated_on }}</p>
-
         
         {% for img in object.images.all %}
             {% if img.image %}
@@ -28,6 +27,7 @@
                 <li>{{ ingredient.quantity }} of {{ ingredient.ingredient.name }}</li>
             {% endfor %}
         </ul>
+
     {% else %}
         <p>You must be logged in to view this page.</p>
     {% endif %}
